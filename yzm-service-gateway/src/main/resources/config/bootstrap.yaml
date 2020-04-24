@@ -1,0 +1,47 @@
+server:
+  port: ${port:8180}
+  ipAddr: ${ipAddr:127.0.0.1}
+
+
+spring:
+  zipkin:
+    base-url: 127.0.0.1:9411
+    discovery-client-enabled: false #
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比 range[0.1~1.0]
+
+  application:
+    name: service-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
+#          lower-case-service-id: true
+      routes:
+        - id: service_product
+          uri: lb://service-product
+          order: 0 #数字越小,越先执行,即优先级越高
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - StripPrefix=1
+        - id: service_order
+          uri: lb://service-order
+          order: 1 #数字越小,越先执行,即优先级越高
+          predicates:
+            - Path=/api/order/**
+          filters:
+            - StripPrefix=1
+    nacos:
+      discovery:
+        server-addr: ${server.ipAddr}:8848
+
+
+logging:
+  level:
+    root: info
+#  pattern:
+#    console:  '[%-5level] %clr(%d{HH:mm:ss}){cyan} %logger - %clr(%msg){green} [%clr(%thread{20}){cyan}]%n'

@@ -1,0 +1,19 @@
+#server:
+#  port: ${port:8100}
+#  ipAddr: ${ipAddr:127.0.0.1}
+#
+#spring:
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: ${server.ipAddr}:8848
+##        namespace:
+#
+#
+#  application:
+#    name: service-order
+#logging:
+#  level:
+#    root: info
+#  pattern:
+#    console:  '[%-5level] %clr(%d{HH:mm:ss}){cyan} %logger - %clr(%msg){green} [%clr(%thread{20}){cyan}]%n'

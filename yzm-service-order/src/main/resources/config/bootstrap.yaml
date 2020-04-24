@@ -1,0 +1,50 @@
+server:
+  port: ${port:8100}
+  ipAddr: ${ipAddr:127.0.0.1}
+  tomcat:
+    max-threads: 10 #配置tomcat 最大线程数
+
+spring:
+#  zipkin:
+#    base-url: 127.0.0.1:9411
+#    discovery-client-enabled: false #
+#  sleuth:
+#    sampler:
+#      probability: 1.0 #采样百分比
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${server.ipAddr}:8848
+        namespace: 31885c53-49eb-4031-9450-89e78cfb48fa
+    sentinel:
+      transport:
+        port: 9999
+        dashboard: localhost:8080
+      filter:
+        enabled: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/shop?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=GMT%2B8
+
+  application:
+    name: service-order
+logging:
+  level:
+    root: info
+#  pattern:
+#    console:  '[%-5level] %clr(%d{HH:mm:ss}){cyan} %logger - %clr(%msg){green} [%clr(%thread{20}){cyan}]%n'
+
+#service-product: #
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule #配置为随机访问规则
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RoundRobinRul#轮询 规则  ribbon默认为轮询策略.
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RetryRule#重试 规则
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule#响应时间权重
+#    NFLoadBalancerRuleClassName: BestAvailableRule   # 最空闲连接策略
+#    ConnectTimeout: 500 #请求连接超时时间
+#    ReadTimeout: 1000 #请求读处理的超时时间
+#    OkToRetryOnAllOperations: true #对所有请求都进行重试
+#    MaxAutoRetriesNextServer: 2  #切换实例的重试次数
+#    MaxAutoRetries: 1 #对当前实例的重试次数
