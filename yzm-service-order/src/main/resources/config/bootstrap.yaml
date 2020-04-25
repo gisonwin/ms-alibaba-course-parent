@@ -5,23 +5,23 @@ server:
     max-threads: 10 #配置tomcat 最大线程数
 
 spring:
-#  zipkin:
-#    base-url: 127.0.0.1:9411
-#    discovery-client-enabled: false #
-#  sleuth:
-#    sampler:
-#      probability: 1.0 #采样百分比
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    discovery-client-enabled: false #
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比 range[0.1~1.0]
   cloud:
     nacos:
       discovery:
         server-addr: ${server.ipAddr}:8848
         namespace: 31885c53-49eb-4031-9450-89e78cfb48fa
-    sentinel:
-      transport:
-        port: 9999
-        dashboard: localhost:8080
-      filter:
-        enabled: false
+#    sentinel:
+#      transport:
+#        port: 9999
+#        dashboard: localhost:8080
+#      filter:
+#        enabled: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root

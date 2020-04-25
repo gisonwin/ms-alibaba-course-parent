@@ -1,12 +1,12 @@
 server:
   port: ${port:8150}
 spring:
-#  zipkin:
-#    base-url: 127.0.0.1:9411
-#    discovery-client-enabled: false #
-#  sleuth:
-#    sampler:
-#      probability: 1.0 #采样百分比
+  zipkin:
+    base-url: http://127.0.0.1:9411
+    discovery-client-enabled: false #
+  sleuth:
+    sampler:
+      probability: 1.0 #采样百分比
   application:
     name: service-product
   datasource:

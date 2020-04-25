@@ -9,15 +9,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigInteger;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @author <a href="mailto:gisonwin@qq.com">GisonWin</a>
  * @date 2020/4/5 16:36
  */
-//@RestController
+@RestController
 @Slf4j
 public class OrderController {
 //    @Autowired
@@ -35,11 +35,11 @@ public class OrderController {
         ShopProduct product = productFeignService.findByPid(pid);
 //        ShopProduct product = restTemplate.getForObject("http://service-product/product/" + pid, ShopProduct.class);
         log.info("product micro service return is {} ", product);
-        try {
-            TimeUnit.MICROSECONDS.sleep(20000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            TimeUnit.MICROSECONDS.sleep(2000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         //根据商品id下单
         log.info("place an order with Product {}", pid);
         Order order = Order.builder().id(UuidUtils.generateUuid().replaceAll("-", ""))

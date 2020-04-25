@@ -5,7 +5,7 @@ server:
 
 spring:
   zipkin:
-    base-url: 127.0.0.1:9411
+    base-url: http://127.0.0.1:9411
     discovery-client-enabled: false #
   sleuth:
     sampler:
@@ -23,7 +23,7 @@ spring:
       routes:
         - id: service_product
           uri: lb://service-product
-          order: 0 #数字越小,越先执行,即优先级越高
+          order: 1 #数字越小,越先执行,即优先级越高
           predicates:
             - Path=/api/product/**
           filters:
@@ -38,7 +38,7 @@ spring:
     nacos:
       discovery:
         server-addr: ${server.ipAddr}:8848
-
+        namespace: 31885c53-49eb-4031-9450-89e78cfb48fa
 
 logging:
   level:
