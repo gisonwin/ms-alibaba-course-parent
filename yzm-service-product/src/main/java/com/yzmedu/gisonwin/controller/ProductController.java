@@ -3,11 +3,11 @@ package com.yzmedu.gisonwin.controller;
 import com.yzm.gisonwin.entity.ShopProduct;
 import com.yzmedu.gisonwin.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import javax.validation.constraints.NotNull;
 import java.util.concurrent.TimeUnit;
 
@@ -18,8 +18,9 @@ import java.util.concurrent.TimeUnit;
 @RestController
 @Slf4j
 public class ProductController {
-    @Autowired
+    @Resource
     private ProductService productService;
+
     @GetMapping("product/{pid}")
     public ShopProduct getProduct(@PathVariable("pid") @NotNull String pid) {
         log.info("对商品{}进行查询", pid);
@@ -27,7 +28,7 @@ public class ProductController {
         ShopProduct product = productService.findByPid(pid);
 
 //        sleep();
-        log.info("get product info ==> {}",product.toString());
+        log.info("get product info ==> {}", product.toString());
         return product;
     }
 

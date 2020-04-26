@@ -13,12 +13,12 @@ import javax.servlet.Filter;
 //@Configuration
 public class FilterContextConfig {
     @Bean
-    public FilterRegistrationBean sentinelFilterRegistration(){
+    public FilterRegistrationBean sentinelFilterRegistration() {
         FilterRegistrationBean<Filter> filterFilterRegistrationBean = new FilterRegistrationBean<>();
         filterFilterRegistrationBean.setFilter(new CommonFilter());
         filterFilterRegistrationBean.addUrlPatterns("/*");
         //入口资源关闭聚合
-        filterFilterRegistrationBean.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY,"false");
+        filterFilterRegistrationBean.addInitParameter(CommonFilter.WEB_CONTEXT_UNIFY, "false");
         filterFilterRegistrationBean.setName("sentinelFilter");
         filterFilterRegistrationBean.setOrder(1);
         return filterFilterRegistrationBean;

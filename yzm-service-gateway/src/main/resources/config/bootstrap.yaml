@@ -19,7 +19,7 @@ spring:
         locator:
           enabled: true
           lowerCaseServiceId: true
-#          lower-case-service-id: true
+      #          lower-case-service-id: true
       routes:
         - id: service_product
           uri: lb://service-product

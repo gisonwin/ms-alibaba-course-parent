@@ -3,8 +3,9 @@ package com.yzmedu.gisonwin.service.impl;
 import com.yzm.gisonwin.entity.ShopProduct;
 import com.yzmedu.gisonwin.mapper.ProductMapper;
 import com.yzmedu.gisonwin.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author <a href="mailto:gisonwin@qq.com">GisonWin</a>
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class ProductServiceImpl implements ProductService {
-    @Autowired
+    @Resource
     private ProductMapper productMapper;
 
     @Override

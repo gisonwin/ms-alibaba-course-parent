@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class OrderServiceImpl2 {
     //定义 定义资源  value 指定资源名称.
     @SentinelResource("message")
-    public String message(){
+    public String message() {
         return "message method";
     }
 }

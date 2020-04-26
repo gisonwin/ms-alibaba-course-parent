@@ -18,6 +18,7 @@ import java.util.stream.Stream;
  * token验证过滤器.
  * 登录和注册在忽略验证的列表中.可配置.
  * 其他所有请求都走验证token的过滤器.
+ *
  * @author <a href="mailto:gisonwin@qq.com">GisonWin</a>
  * @date 2020/4/6 17:46
  */
@@ -26,11 +27,12 @@ import java.util.stream.Stream;
 public class AuthFilter implements GlobalFilter, Ordered {
     @Value("${auth.skip.urls:skip urls not config yet}")
     private String[] skipAuthUrls; //忽略验证的urls
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         String path = request.getURI().getPath().trim();
-        Assert.notEmpty(skipAuthUrls,"skip auth urls is not null");
+        Assert.notEmpty(skipAuthUrls, "skip auth urls is not null");
         //如果当前路径不需要验证就放行
         if (Stream.of(skipAuthUrls).anyMatch(url -> url.equalsIgnoreCase(path.trim()))) {
             log.debug("{} 不需要鉴权,its order {}", path.trim(), getOrder());

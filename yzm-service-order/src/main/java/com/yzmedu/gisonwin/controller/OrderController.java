@@ -6,11 +6,11 @@ import com.yzm.gisonwin.entity.ShopProduct;
 import com.yzmedu.gisonwin.feign.ProductFeignService;
 import com.yzmedu.gisonwin.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.math.BigInteger;
 
 /**
@@ -20,12 +20,11 @@ import java.math.BigInteger;
 @RestController
 @Slf4j
 public class OrderController {
-//    @Autowired
-//    private RestTemplate restTemplate;
-    @Autowired
+
+    @Resource
     private OrderService orderService;
 
-    @Autowired
+    @Resource
     private ProductFeignService productFeignService;
 
     @GetMapping("/order/prod/{pid}")

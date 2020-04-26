@@ -16,12 +16,12 @@ spring:
       discovery:
         server-addr: ${server.ipAddr}:8848
         namespace: 31885c53-49eb-4031-9450-89e78cfb48fa
-#    sentinel:
-#      transport:
-#        port: 9999
-#        dashboard: localhost:8080
-#      filter:
-#        enabled: false
+  #    sentinel:
+  #      transport:
+  #        port: 9999
+  #        dashboard: localhost:8080
+  #      filter:
+  #        enabled: false
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root

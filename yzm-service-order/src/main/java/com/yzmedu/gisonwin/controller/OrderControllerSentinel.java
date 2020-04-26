@@ -6,10 +6,10 @@ import com.yzm.gisonwin.entity.ShopProduct;
 import com.yzmedu.gisonwin.feign.ProductFeignService;
 import com.yzmedu.gisonwin.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import javax.annotation.Resource;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
@@ -21,10 +21,10 @@ import java.util.concurrent.TimeUnit;
 //@RestController
 @Slf4j
 public class OrderControllerSentinel {
-    @Autowired
+    @Resource
     private OrderService orderService;
 
-    @Autowired
+    @Resource
     private ProductFeignService productFeignService;
 
     @GetMapping("/order/prod/{pid}")
@@ -53,8 +53,8 @@ public class OrderControllerSentinel {
 
     //测试高并发
     @GetMapping("/order/message")
-    public String message(){
-        return "测试高并发"+ LocalDateTime.now().toString();
+    public String message() {
+        return "测试高并发" + LocalDateTime.now().toString();
     }
 
 //    @GetMapping("/order/prod/{pid}")
