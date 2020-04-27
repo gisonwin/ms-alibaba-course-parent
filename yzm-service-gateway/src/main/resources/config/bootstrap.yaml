@@ -35,6 +35,18 @@ spring:
             - Path=/api/order/**
           filters:
             - StripPrefix=1
+      globalcors:
+        cors-configurations:
+          '[/**]':
+              allow-credentials: true #允许携带认证信息
+              allowed-origins: #允许跨域的源(域名和IP),设置*为全部
+                - '*'
+              allowed-headers: '*' # 允许跨域请求里的header字段,*为全部
+              allowed-methods: #允许跨域的方法
+                - GET
+                - POST
+                - OPTIONS
+              max-age: 3600 # 跨域允许的有效期
     nacos:
       discovery:
         server-addr: ${server.ipAddr}:8848
