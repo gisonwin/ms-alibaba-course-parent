@@ -38,6 +38,10 @@ public class AuthFilter implements GlobalFilter, Ordered {
             log.debug("{} 不需要鉴权,its order {}", path.trim(), getOrder());
             return chain.filter(exchange);
         }
+        //TODO 获取客户端 传来的token信息进行安全鉴定
+        //TODO 比如使用token去redis里查看是否过期,是否在黑名单 中等
+        //TODO 验证通过后走过滤器链即可
+        //TODO 验证未通过 直接返回客户端 相应的提示信息
 
         return chain.filter(exchange);
     }
