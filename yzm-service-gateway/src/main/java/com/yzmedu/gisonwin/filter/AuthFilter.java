@@ -42,7 +42,7 @@ public class AuthFilter implements GlobalFilter, Ordered {
         //TODO 比如使用token去redis里查看是否过期,是否在黑名单 中等
         //TODO 验证通过后走过滤器链即可
         //TODO 验证未通过 直接返回客户端 相应的提示信息
-
+        Assert.notNull(exchange,"exchange should not be null");
         return chain.filter(exchange);
     }
 

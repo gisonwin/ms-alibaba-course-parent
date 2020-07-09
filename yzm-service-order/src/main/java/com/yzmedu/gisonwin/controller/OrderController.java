@@ -6,6 +6,7 @@ import com.yzm.gisonwin.entity.ShopProduct;
 import com.yzmedu.gisonwin.feign.ProductFeignService;
 import com.yzmedu.gisonwin.service.OrderService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,6 +30,7 @@ public class OrderController {
 
     @GetMapping("/order/prod/{pid}")
     public Order placeOrder(@PathVariable("pid") String pid) {
+        Assert.notNull(pid,"pid must not be null");
         log.info("received {} product order request", pid);
 //        去产品微服务查询商品
         ShopProduct product = productFeignService.findByPid(pid);
