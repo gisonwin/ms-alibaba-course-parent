@@ -156,7 +156,7 @@
         <tk.mybatis.version>2.1.5</tk.mybatis.version>
         <spring.security.version>2.3.6.RELEASE</spring.security.version>
         <security.jwt.version>1.0.10.RELEASE</security.jwt.version>
-        <httpclient.version>4.5.8</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <lombok.version>1.18.10</lombok.version>
         <!-- maven plugins version manage -->
         <maven.compile.version>3.8.0</maven.compile.version>
