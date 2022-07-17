@@ -163,7 +163,7 @@
         <verions.maven.plugin>2.7</verions.maven.plugin>
         <spring-cloud-alibaba.version>2.1.1.RELEASE</spring-cloud-alibaba.version>
         <!-- 使用目前最新的nacos客户端 1.2.0-->
-        <nacos-client.version>1.2.1</nacos-client.version>
+        <nacos-client.version>2.0</nacos-client.version>
     </properties>
     <build>
         <plugins>
